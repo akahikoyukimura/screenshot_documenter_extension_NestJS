@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Screenshot Documenter</title>
+
+  <script type="module" crossorigin src="/assets/popup.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/popup.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Screenshot Documenter</h1>
+      <p>Capture and document your work.</p>
+    </header>
+
+    <section id="topic-section">
+
+      <div class="section-title">
+        Active Topic
+      </div>
+
+      <div
+        id="current-topic"
+        class="topic-card"
+      >
+        Loading...
+      </div>
+
+      <button
+        id="create-topic-btn"
+        class="secondary-button"
+      >
+        + Create New Topic
+      </button>
+
+    </section>
+
+    <section id="capture-section">
+
+      <div class="section-title">
+        Screenshot
+      </div>
+
+      <button
+        id="capture-btn"
+        class="primary-button"
+      >
+        Capture Current Tab
+      </button>
+
+      <div
+        id="preview-container"
+        class="preview-container hidden"
+      >
+        <img
+          id="preview"
+          alt="Screenshot preview"
+        />
+      </div>
+
+      <textarea
+        id="comment"
+        placeholder="Add a comment about this screenshot..."
+      ></textarea>
+
+      <button
+        id="add-btn"
+        class="primary-button hidden"
+      >
+        Add to Topic
+      </button>
+
+    </section>
+
+    <div
+      id="status"
+      class="status"
+    ></div>
+
+  </div>
+
+
+</body>
+
+</html>
