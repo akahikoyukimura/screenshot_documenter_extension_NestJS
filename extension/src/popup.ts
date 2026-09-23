@@ -28,6 +28,10 @@ const preview = document.getElementById("preview") as HTMLImageElement;
 
 const statusElement = document.getElementById("status") as HTMLDivElement;
 
+const existingTopicsDropdown = document.getElementById(
+  "existingTopicsDropdown",
+) as HTMLSelectElement;
+
 function setStatus(message: string) {
   statusElement.textContent = message;
 }
@@ -40,6 +44,26 @@ async function getCurrentTopic(): Promise<Topic | null> {
   }
 
   return response.json();
+}
+
+async function setCurrentTopic(topicId: string): Promise<Topic | null> {
+  const response = await fetch(`${API_URL}/topics/current`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify({
+      id: topicId,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to set current topic");
+  }
+
+  return await response.json();
 }
 
 function displayTopic(topic: Topic | null) {
@@ -93,6 +117,38 @@ async function loadCurrentTopic() {
     captureButton.disabled = true;
   }
 }
+async function loadTopicList() {
+  try {
+    setStatus("Loading topics...");
+    const response = await fetch(`${API_URL}/topics`);
+    if (!response.ok) {
+      throw new Error("Unable to load list of topics");
+    }
+    const topics: Topic[] = await response.json();
+    topics.forEach((item) => {
+      const option = document.createElement("option") as HTMLOptionElement;
+      option.value = item.id;
+      option.textContent = item.name;
+      existingTopicsDropdown.appendChild(option);
+    });
+    setStatus("Topics loaded.");
+  } catch (error) {
+    setStatus("Unable to load Topics.");
+  }
+}
+
+existingTopicsDropdown.addEventListener("change", async (event) => {
+  const target = event.target as HTMLSelectElement;
+  const selectedValue = target.value;
+  if (selectedValue === "") return;
+  try {
+    const topic = await setCurrentTopic(selectedValue);
+    displayTopic(topic);
+    setStatus("Topic switched");
+  } catch (error) {
+    setStatus("Failed to switch topic");
+  }
+});
 
 createTopicButton.addEventListener("click", async () => {
   const name = window.prompt("Enter topic name:");
@@ -222,3 +278,4 @@ addButton.addEventListener("click", async () => {
 });
 
 loadCurrentTopic();
+loadTopicList();

@@ -4,17 +4,11 @@
 <head>
   <meta charset="UTF-8" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Screenshot Documenter</title>
 
-  <link
-    rel="stylesheet"
-    href="popup.css"
-  />
+  <link rel="stylesheet" href="popup.css" />
 </head>
 
 <body>
@@ -32,17 +26,15 @@
         Active Topic
       </div>
 
-      <div
-        id="current-topic"
-        class="topic-card"
-      >
+      <div id="current-topic" class="topic-card">
         Loading...
       </div>
 
-      <button
-        id="create-topic-btn"
-        class="secondary-button"
-      >
+      <select id="existingTopicsDropdown">
+        <option value="" disabled selected hidden>Switch topic</option>
+      </select>
+
+      <button id="create-topic-btn" class="secondary-button">
         + Create New Topic
       </button>
 
@@ -54,48 +46,27 @@
         Screenshot
       </div>
 
-      <button
-        id="capture-btn"
-        class="primary-button"
-      >
+      <button id="capture-btn" class="primary-button">
         Capture Current Tab
       </button>
 
-      <div
-        id="preview-container"
-        class="preview-container hidden"
-      >
-        <img
-          id="preview"
-          alt="Screenshot preview"
-        />
+      <div id="preview-container" class="preview-container hidden">
+        <img id="preview" alt="Screenshot preview" />
       </div>
 
-      <textarea
-        id="comment"
-        placeholder="Add a comment about this screenshot..."
-      ></textarea>
+      <textarea id="comment" placeholder="Add a comment about this screenshot..."></textarea>
 
-      <button
-        id="add-btn"
-        class="primary-button hidden"
-      >
+      <button id="add-btn" class="primary-button hidden">
         Add to Topic
       </button>
 
     </section>
 
-    <div
-      id="status"
-      class="status"
-    ></div>
+    <div id="status" class="status"></div>
 
   </div>
 
-  <script
-    type="module"
-    src="popup.js"
-  ></script>
+  <script type="module" src="popup.js"></script>
 
 </body>
 
