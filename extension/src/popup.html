@@ -23,16 +23,20 @@
     <section id="topic-section">
 
       <div class="section-title">
-        Active Topic
+        <div>Active Topic</div>
+        <div>
+          <select id="existingTopicsDropdown" class="switch-drop-down">
+        <option value="" disabled selected hidden>Switch topic</option>
+      </select>
+        </div>
+         
       </div>
 
       <div id="current-topic" class="topic-card">
         Loading...
       </div>
 
-      <select id="existingTopicsDropdown">
-        <option value="" disabled selected hidden>Switch topic</option>
-      </select>
+     
 
       <button id="create-topic-btn" class="secondary-button">
         + Create New Topic

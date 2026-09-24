@@ -7,9 +7,7 @@ body {
 
   width: 360px;
 
-  font-family:
-    Arial,
-    sans-serif;
+  font-family: Arial, sans-serif;
 
   background: #f5f7fa;
 
@@ -39,6 +37,9 @@ header p {
 }
 
 .section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
   margin-bottom: 8px;
 
   font-size: 12px;
@@ -156,4 +157,20 @@ textarea {
   text-align: center;
 
   color: #6b7280;
+}
+
+.switch-drop-down {
+  width: 100%;
+  border-radius: 7px;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  background: #fff;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+}
+
+.switch-drop-down:focus-visible {
+  outline: none;
 }
