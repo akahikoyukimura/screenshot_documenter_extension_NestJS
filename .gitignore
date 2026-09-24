@@ -1,9 +1,22 @@
 # compiled output
 /dist
+./extension/dist
+./backend/dist
 /node_modules
 ./extension/node_modules
 ./backend/node_modules
 /build
+./backend/data/documents/*
+
+**/dist/
+**/node_modules/
+**/data/documents/*
+
+extension/dist/
+backend/dist/
+extension/node_modules/
+backend/node_modules/
+backend/data/documents/
 
 # Logs
 logs
